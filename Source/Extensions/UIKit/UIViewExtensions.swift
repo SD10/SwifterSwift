@@ -7,7 +7,6 @@
 //
 
 #if os(iOS) || os(tvOS)
-
 import UIKit
 
 
@@ -243,7 +242,7 @@ public extension UIView {
 	///   - opacity: shadow opacity (default is 0.5).
 	public func addShadow(ofColor color: UIColor = UIColor(hex: 0x137992),
 	                      radius: CGFloat = 3,
-	                      offset: CGSize = CGSize.zero,
+	                      offset: CGSize = .zero,
 	                      opacity: Float = 0.5) {
 		layer.shadowColor = color.cgColor
 		layer.shadowOffset = offset
@@ -418,7 +417,7 @@ public extension UIView {
 			bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
 		}
 	}
-
+	
 	/// SwifterSwift: Add anchors from any side of the current view into the specified anchors and returns the newly added constraints.
 	///
 	/// - Parameters:
@@ -498,5 +497,4 @@ public extension UIView {
 	}
 	
 }
-
 #endif

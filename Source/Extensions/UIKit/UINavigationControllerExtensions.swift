@@ -7,7 +7,6 @@
 //
 
 #if os(iOS) || os(tvOS)
-
 import UIKit
 
 
@@ -50,5 +49,4 @@ public extension UINavigationController {
 	}
 	
 }
-
 #endif

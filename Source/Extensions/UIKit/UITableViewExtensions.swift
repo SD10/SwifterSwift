@@ -6,8 +6,7 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
-#if os(iOS)
-
+#if os(iOS) || os(tvOS)
 import UIKit
 
 
@@ -34,7 +33,7 @@ public extension UITableView {
 		}
 		return rowCount
 	}
-
+	
 }
 
 
@@ -93,5 +92,4 @@ public extension UITableView {
 	}
 	
 }
-
 #endif

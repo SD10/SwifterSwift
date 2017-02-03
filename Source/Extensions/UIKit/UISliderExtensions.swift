@@ -7,8 +7,8 @@
 //
 
 #if os(iOS)
-
 import UIKit
+
 
 // MARK: - Methods
 public extension UISlider {
@@ -34,5 +34,4 @@ public extension UISlider {
 	}
 	
 }
-	
 #endif

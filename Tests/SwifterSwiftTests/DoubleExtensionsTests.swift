@@ -55,7 +55,10 @@ class DoubleExtensionsTests: XCTestCase {
 	
 	func testAsLocaleCurrency() {
 		let num = Double(10.23)
-		let asLocaleCurrency = "\(Locale.current.currencySymbol ?? "")\(num)"
-		XCTAssertEqual(num.asLocaleCurrency, asLocaleCurrency)
+		if let symbol = Locale.current.currencySymbol {
+			XCTAssert(num.asLocaleCurrency.contains(symbol))
+		}
+		XCTAssert(num.asLocaleCurrency.contains("\(num)"))
 	}
+	
 }

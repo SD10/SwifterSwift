@@ -7,7 +7,6 @@
 //
 
 #if os(iOS) || os(tvOS)
-
 import UIKit
 
 
@@ -52,5 +51,4 @@ public extension UIViewController {
 	}
 	
 }
-
 #endif

@@ -7,7 +7,6 @@
 //
 
 #if os(iOS) || os(tvOS)
-
 import UIKit
 
 
@@ -51,5 +50,4 @@ public extension UINavigationBar {
 		self.titleTextAttributes = [NSForegroundColorAttributeName: text]
 	}
 }
-
 #endif

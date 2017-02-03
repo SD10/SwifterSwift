@@ -106,6 +106,12 @@ class StringExtensionsTests: XCTestCase {
 		XCTAssert("ftp://google.com".isValidUrl)
 	}
 	
+        func testIsValidSchemedUrl() {
+                XCTAssert("https://google.com".isValidSchemedUrl)
+                XCTAssert("ftp://google.com".isValidSchemedUrl)
+                XCTAssertFalse("google.com".isValidSchemedUrl)
+        }
+    
 	func testIsValidHttpsUrl() {
 		XCTAssert("https://google.com".isValidHttpsUrl)
 		XCTAssertFalse("http://google.com".isValidHttpsUrl)
@@ -136,6 +142,10 @@ class StringExtensionsTests: XCTestCase {
 	
 	func testLatinized() {
 		XCTAssertEqual("Hëllô Teśt".latinized, "Hello Test")
+	}
+	
+	func testLength() {
+		XCTAssertEqual("Hello world!".length, 12)
 	}
 	
 	func testLines() {

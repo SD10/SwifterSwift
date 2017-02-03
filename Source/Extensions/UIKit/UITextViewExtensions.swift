@@ -7,12 +7,17 @@
 //
 
 #if os(iOS) || os(tvOS)
-
 import UIKit
 
 
 // MARK: - Methods
 public extension UITextView {
+	
+	/// SwifterSwift: Clear text.
+	public func clear() {
+		text = ""
+		attributedText = NSAttributedString(string: "")
+	}
 	
 	/// SwifterSwift: Scroll to the bottom of text view
 	public func scrollToBottom() {
@@ -27,5 +32,4 @@ public extension UITextView {
 	}
 	
 }
-
 #endif

@@ -7,7 +7,6 @@
 //
 
 #if os(iOS) || os(tvOS)
-
 import UIKit
 
 
@@ -30,4 +29,13 @@ public extension UISearchBar {
 	
 }
 
+
+// MARK: - Methods
+public extension UISearchBar {
+	
+	/// SwifterSwift: Clear text.
+	public func clear() {
+		text = ""
+	}
+}
 #endif

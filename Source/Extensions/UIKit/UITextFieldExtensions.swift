@@ -7,10 +7,9 @@
 //
 
 #if os(iOS) || os(tvOS)
-
 import UIKit
 
-	
+
 // MARK: - Properties
 public extension UITextField {
 	
@@ -68,6 +67,12 @@ public extension UITextField {
 // MARK: - Methods
 public extension UITextField {
 	
+	/// SwifterSwift: Clear text.
+	public func clear() {
+		text = ""
+		attributedText = NSAttributedString(string: "")
+	}
+	
 	/// SwifterSwift: Set placeholder text color.
 	///
 	/// - Parameter color: placeholder text color.
@@ -76,5 +81,4 @@ public extension UITextField {
 	}
 	
 }
-
 #endif

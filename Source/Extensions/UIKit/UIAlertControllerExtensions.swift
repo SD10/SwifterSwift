@@ -7,7 +7,6 @@
 //
 
 #if os(iOS)
-	
 import UIKit
 import AudioToolbox
 
@@ -99,5 +98,4 @@ extension UIAlertController {
 	}
 	
 }
-
 #endif

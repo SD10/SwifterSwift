@@ -10,9 +10,9 @@ import Foundation
 
 
 #if os(macOS)
-import Cocoa
+	import Cocoa
 #else
-import UIKit
+	import UIKit
 #endif
 
 // MARK: - Properties
@@ -106,6 +106,14 @@ public extension String {
 		return URL(string: self) != nil
 	}
 	
+	/// SwifterSwift: Check if string is a valid schemed URL.
+	public var isValidSchemedUrl: Bool {
+		guard let url = URL(string: self) else {
+			return false
+		}
+		return url.scheme != nil
+	}
+	
 	/// SwifterSwift: Check if string is a valid https URL.
 	public var isValidHttpsUrl: Bool {
 		guard let url = URL(string: self) else {
@@ -138,6 +146,11 @@ public extension String {
 	/// SwifterSwift: Latinized string.
 	public var latinized: String {
 		return folding(options: .diacriticInsensitive, locale: Locale.current)
+	}
+	
+	/// SwifterSwift: Number of characters in string.
+	public var length: Int {
+		return characters.count
 	}
 	
 	/// SwifterSwift: Array of strings separated by new lines.
@@ -254,7 +267,7 @@ public extension String {
 	
 	/// SwifterSwift: String with no spaces or new lines in beginning and end.
 	public var trimmed: String {
-		return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+		return trimmingCharacters(in: .whitespacesAndNewlines)
 	}
 	
 	/// SwifterSwift: Array with unicodes for all characters in a string.
@@ -323,9 +336,9 @@ public extension String {
 	/// SwifterSwift: Copy string to global pasteboard.
 	func copyToPasteboard() {
 		#if os(iOS)
-		UIPasteboard.general.string = self
+			UIPasteboard.general.string = self
 		#elseif os(macOS)
-		NSPasteboard.general().setString(self, forType: NSPasteboardTypeString)
+			NSPasteboard.general().setString(self, forType: NSPasteboardTypeString)
 		#endif
 	}
 	#endif
@@ -550,9 +563,7 @@ public extension String {
 	///   - trailing: string to add at the end of truncated string.
 	/// - Returns: truncated string (this is an extr...).
 	public func truncated(toLength: Int, trailing: String? = "...") -> String {
-		guard self.characters.count > toLength, toLength > 0 else {
-			return self
-		}
+        guard 1..<self.characters.count ~= toLength else { return self }
 		return self.substring(to: self.index(startIndex, offsetBy: toLength)) + (trailing ?? "")
 	}
 	
@@ -627,9 +638,9 @@ public extension String {
 	/// SwifterSwift: Bold string.
 	public var bold: NSAttributedString {
 		#if os(macOS)
-		return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: NSFont.boldSystemFont(ofSize: NSFont.systemFontSize())])
+			return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: NSFont.boldSystemFont(ofSize: NSFont.systemFontSize())])
 		#else
-		return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
+			return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
 		#endif
 	}
 	#endif
@@ -647,7 +658,7 @@ public extension String {
 	#if os(iOS)
 	/// SwifterSwift: Italic string.
 	public var italic: NSAttributedString {
-	return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
+		return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
 	}
 	#endif
 	
@@ -657,7 +668,7 @@ public extension String {
 	/// - Parameter color: text color.
 	/// - Returns: a NSAttributedString versions of string colored with given color.
 	public func colored(with color: NSColor) -> NSAttributedString {
-		return NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
+	return NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
 	}
 	#else
 	/// SwifterSwift: Add color to string.

@@ -7,7 +7,6 @@
 //
 
 #if os(iOS) || os(tvOS)
-
 import UIKit
 
 
@@ -25,5 +24,4 @@ public extension UINavigationItem {
 	}
 	
 }
-
 #endif

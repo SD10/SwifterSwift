@@ -82,7 +82,7 @@ public func ** (lhs: Double, rhs: Double) -> Double {
 prefix operator √
 /// SwifterSwift: Square root of double.
 ///
-/// - Parameter int: double value to find square root for
+/// - Parameter double: double value to find square root for
 /// - Returns: square root of given double.
 public prefix func √ (double: Double) -> Double {
 	// http://nshipster.com/swift-operators/
